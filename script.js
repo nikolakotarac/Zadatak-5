@@ -27,27 +27,33 @@ buttons.map( button => {
         }
     });
 });
-let activeTheme = 0;
-toggleBtn.addEventListener('click' , function(e) {
-    e.preventDefault();
 
+
+toggleBtn.addEventListener('click' , function() {
+    
+    
+    let activeTheme =  Number(localStorage.getItem("activeTheme"));
     activeTheme += 1;
     if (activeTheme > 2) {
         activeTheme = 0;
     }
     if (activeTheme === 1) {
+        
     container.classList.add('white');
     document.body.style.backgroundColor = "#F2F2F2";
+    localStorage.setItem("activeTheme", activeTheme);
     }
     if (activeTheme === 2) {
         container.classList.add('dark');
         document.body.style.backgroundColor = "#17062A";
+        localStorage.setItem("activeTheme", activeTheme);
 
     }
     if (activeTheme === 0) {
        container.classList.remove('dark');
        container.classList.remove('white');
        document.body.style.backgroundColor = "#3A4663";
+       localStorage.setItem("activeTheme", activeTheme);
     }
   
 })
